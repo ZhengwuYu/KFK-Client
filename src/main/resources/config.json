@@ -1,0 +1,32 @@
+{
+  "producer": {
+    "bootstrap.servers": "localhost:9092",
+    "key.serializer": "org.apache.kafka.common.serialization.StringSerializer",
+    "value.serializer": "io.vertx.kafka.client.serialization.JsonObjectSerializer",
+    "acks": "1"
+  },
+  "consumer": {
+    "bootstrap.servers": "localhost:9092",
+    "key.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "value.deserializer": "io.vertx.kafka.client.serialization.JsonObjectDeserializer",
+    "group.id": "WebPOS",
+    "enable.auto.commit": "false",
+    "auto.commit.interval.ms": "2000",
+    "partition.assignment.strategy": "org.apache.kafka.clients.consumer.RangeAssignor",
+    "receive.buffer.bytes": "-1",
+    "send.buffer.bytes": "-1",
+    "auto.offset.reset": "earliest"
+  },
+  "webServer": {
+    "port": 18080
+  },
+  "webClient": {
+    "host": "next-u18-preprod-app-a",
+    "port": 443,
+    "ssl": false
+  },
+  "eventBus": {
+    "service": "service",
+    "client": "client"
+  }
+}
